@@ -1,0 +1,13 @@
+{
+ "dag": {
+  "antall": 0,
+  "dato": "2026-10-10"
+ },
+ "hilst": true,
+ "neste_id": 1,
+ "posisjoner": {},
+ "sist_feilmelding": 0,
+ "sist_varslet": {},
+ "tg_offset": 0,
+ "varsler": []
+}
