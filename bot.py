@@ -478,7 +478,176 @@ def folg_opp(t):
 
 
 # ------------------------- kommandoer fra deg i Telegram -------------------------
+# ------------------------- /analyse: rapport på én coin -------------------------
+def _ordtreff(sok, navn):
+    """Hvor mange av søkeordene som finnes i navnet. Tåler små skrivefeil (jeff/jef)."""
+    navneord = [n for n in navn.lower().replace("/", " ").split() if n]
+    treff = 0
+    for w in sok.lower().split():
+        if any(n == w or (len(w) >= 3 and len(n) >= 3 and (n.startswith(w) or w.startswith(n)))
+               for n in navneord):
+            treff += 1
+    return treff
+
+
+def rugcheck_detaljer(mint):
+    r = http_json(f"https://api.rugcheck.xyz/v1/tokens/{mint}/report", timeout=40)
+    if not r or "topHolders" not in r:
+        return None
+    token = r.get("token") or {}
+    pooler = set((r.get("knownAccounts") or {}).keys())
+    for m in r.get("markets") or []:
+        pooler.update([m.get("pubkey"), m.get("liquidityA"), m.get("liquidityB")])
+        for felt in ("liquidityAAccount", "liquidityBAccount"):
+            pooler.add((m.get(felt) or {}).get("owner"))
+    pooler.discard(None)
+    alle = r.get("topHolders") or []
+    holdere = [h for h in alle if h.get("owner") not in pooler and h.get("address") not in pooler]
+    forsyning = tall(token.get("supply"))
+    nett = r.get("insiderNetworks") or []
+    risiko = r.get("risks") or []
+    return {
+        "rugged": bool(r.get("rugged")),
+        "mint": bool(r.get("mintAuthority") or token.get("mintAuthority")),
+        "freeze": bool(r.get("freezeAuthority") or token.get("freezeAuthority")),
+        "poeng": tall(r.get("score_normalised"), 100),
+        "fare": [x.get("name", "?") for x in risiko if x.get("level") == "danger"],
+        "advarsler": [x.get("name", "?") for x in risiko if x.get("level") == "warn"],
+        "storste": max((tall(h.get("pct")) for h in holdere), default=0.0),
+        "topp10": sum(tall(h.get("pct")) for h in holdere[:10]),
+        "pool": sum(tall(h.get("pct")) for h in alle if h not in holdere),
+        "dev": tall(r.get("creatorBalance")) / forsyning * 100 if forsyning > 0 else 0.0,
+        "nettverk": (sum(tall(n.get("currentHolding")) for n in nett) / forsyning * 100
+                     if forsyning > 0 else 0.0),
+        "nettverk_antall": len(nett),
+        "holdere": int(tall(r.get("totalHolders"))),
+        "skatt": tall((r.get("transferFee") or {}).get("pct")),
+    }
+
+
+def analyse_tekst(sok):
+    sok, e = sok.strip(), html.escape
+    if not sok:
+        return "Skriv navnet eller adressen etter kommandoen, f.eks. /analyse holdoween"
+    svar = http_json("https://api.dexscreener.com/latest/dex/search?q=" + urllib.parse.quote(sok))
+    if svar is None:
+        return "Fikk ikke kontakt med DexScreener. Prøv igjen om litt."
+    beste = {}  # én rad per coin: poolen med mest likviditet
+    for p in svar.get("pairs") or []:
+        b = p.get("baseToken") or {}
+        m = b.get("address")
+        if p.get("chainId") != "solana" or not m or m in IKKE_MEME:
+            continue
+        if m not in beste or tall((p.get("liquidity") or {}).get("usd")) > \
+                tall((beste[m].get("liquidity") or {}).get("usd")):
+            beste[m] = p
+    if not beste:
+        return f"Fant ingen Solana-coin som matcher «{e(sok)}»."
+
+    def treff(p):
+        b = p["baseToken"]
+        if b["address"] == sok:
+            return 99
+        return _ordtreff(sok, f"{b.get('name', '')} {b.get('symbol', '')}")
+
+    def vol(p):
+        return tall((p.get("volume") or {}).get("h24"))
+
+    topp = max(treff(p) for p in beste.values())
+    like = sorted((p for p in beste.values() if treff(p) == topp), key=vol, reverse=True)
+    p, andre = like[0], like[1:]
+    b, mint = p["baseToken"], p["baseToken"]["address"]
+    mcap = tall(p.get("marketCap")) or tall(p.get("fdv"))
+    likv = tall((p.get("liquidity") or {}).get("usd"))
+    tx = (p.get("txns") or {}).get("h24") or {}
+    endr = p.get("priceChange") or {}
+    alder_t = (time.time() - tall(p.get("pairCreatedAt")) / 1000) / 3600 if p.get("pairCreatedAt") else None
+    alder = "ukjent" if alder_t is None else (f"{alder_t:.1f} timer" if alder_t < 48 else f"{alder_t / 24:.0f} dager")
+
+    ut = [f"🔎 <b>Analyse: {e(b.get('name', '?'))} ({e(b.get('symbol', '?'))})</b>",
+          f"<code>{mint}</code>", "",
+          "<b>Marked</b>",
+          f"Alder: {alder} · markedsverdi {usd(mcap)} · likviditet {usd(likv)}"
+          + (f" ({likv / mcap:.0%} av markedsverdien)" if mcap > 0 else ""),
+          f"Volum 24 t: {usd(vol(p))} · kjøp/salg 24 t: {tall(tx.get('buys')):.0f}/{tall(tx.get('sells')):.0f}",
+          f"Kurs: {tall(endr.get('h1')):+.0f} % siste time, {tall(endr.get('h24')):+.0f} % siste døgn"]
+
+    graf = analyser_graf(hent_lys(p.get("pairAddress") or ""))[2]
+    if graf:
+        ut.append(f"Fall fra topp siste 72 t: −{graf['fall']:.0%} · utvaskinger overlevd: {graf['utvaskinger']}")
+    else:
+        ut.append("Graf: for kort historikk til å telle utvaskinger")
+
+    rc = rugcheck_detaljer(mint)
+    brudd = []
+    ut += ["", "<b>Rug-risiko</b>"]
+    if rc is None:
+        ut.append("RugCheck svarte ikke, så dette er ikke sjekket.")
+        brudd.append("sikkerhet ikke bekreftet")
+    else:
+        ut.append(f"RugCheck: {rc['poeng']:.0f}/100 (lavere er tryggere)"
+                  + (" · MERKET SOM RUG" if rc["rugged"] else ""))
+        ut.append("Kan lage nye tokens: " + ("JA" if rc["mint"] else "nei")
+                  + " · kan fryse lommebøker: " + ("JA" if rc["freeze"] else "nei")
+                  + (f" · skatt {rc['skatt']:.1f} %" if rc["skatt"] > 0 else ""))
+        if rc["fare"]:
+            ut.append("Fare: " + e(", ".join(rc["fare"][:4])))
+        if rc["advarsler"]:
+            ut.append("Advarsler: " + e(", ".join(rc["advarsler"][:4])))
+        ut += ["", "<b>Hvem eier</b>",
+               f"Holdere: {rc['holdere']} · utvikler eier {rc['dev']:.1f} %",
+               f"Største holder: {rc['storste']:.1f} % · topp 10: {rc['topp10']:.0f} % "
+               f"(likviditetspool holder {rc['pool']:.0f} % i tillegg)",
+               f"Lommebok-nettverk: {rc['nettverk_antall']} stk eier {rc['nettverk']:.1f} %"]
+        if rc["rugged"] or rc["mint"] or rc["freeze"] or rc["fare"]:
+            brudd.append("alvorlig RugCheck-funn")
+        if rc["poeng"] > MAKS_RUGCHECK:
+            brudd.append(f"RugCheck over {MAKS_RUGCHECK}")
+        if rc["dev"] > MAKS_DEV_ANDEL:
+            brudd.append("utvikler eier for mye")
+        if rc["storste"] > MAKS_STORSTE_HOLDER:
+            brudd.append("for stor enkeltholder")
+        if rc["topp10"] > MAKS_TOPP10:
+            brudd.append("topp 10 eier for mye")
+        if rc["nettverk"] > MAKS_NETTVERK_ANDEL:
+            brudd.append("lommebok-nettverk eier for mye")
+    if alder_t is not None and alder_t < MIN_ALDER_DAGER * 24:
+        brudd.append(f"yngre enn {MIN_ALDER_DAGER} dager")
+    if not (MIN_MCAP <= mcap <= MAKS_MCAP):
+        brudd.append("markedsverdi utenfor 300k–10M")
+    if likv < MIN_LIKVIDITET:
+        brudd.append("for lite likviditet")
+    if vol(p) < MIN_VOLUM_24T:
+        brudd.append("for lite handel")
+    if graf and graf["utvaskinger"] < MIN_UTVASKINGER:
+        brudd.append(f"under {MIN_UTVASKINGER} utvaskinger")
+
+    info = p.get("info") or {}
+    lenker = [f"<a href=\"{e(w.get('url', ''))}\">nettside</a>" for w in (info.get("websites") or [])[:2]
+              if w.get("url")]
+    lenker += [f"<a href=\"{e(s.get('url', ''))}\">{e(s.get('type') or 'sosial')}</a>"
+               for s in (info.get("socials") or [])[:3] if s.get("url")]
+    ut += ["", "<b>Narrativ</b>",
+           "Boten kan ikke vurdere historien bak coinen. Les selv:",
+           (" · ".join(lenker) if lenker else "Prosjektet har ikke oppgitt nettside eller sosiale lenker.")
+           + f" · <a href=\"https://x.com/search?q={mint}&f=live\">søk på X</a>"
+           + f" · <a href=\"https://dexscreener.com/solana/{mint}\">graf</a>"]
+    if andre:
+        ut.append(f"OBS: andre Solana-coins med samme navn: {len(andre)}. Sjekk adressen før du handler.")
+        for a in andre[:3]:
+            ab = a["baseToken"]
+            ut.append(f"  {e(ab.get('symbol', '?'))} …{ab['address'][-8:]} · "
+                      f"{usd(tall(a.get('marketCap')) or tall(a.get('fdv')))}")
+
+    ut += ["", "<b>Mot botens regler</b>",
+           ("Faller på: " + ", ".join(brudd)) if brudd else
+           "Består størrelse, alder og sikkerhet. Timing (fall fra topp) avgjør om boten ville varslet.",
+           "<i>Rapport fra offentlige data, ikke kjøpsråd. Kan gå til null.</i>"]
+    return "\n".join(ut)
+
+
 HJELP = ("<b>Kommandoer</b>\n"
+         "/analyse navn – rapport på én coin (navn eller adresse)\n"
          "/kjopt 12 – jeg kjøpte kandidat #12 (boten følger den videre)\n"
          "/solgt 12 – jeg har solgt, slutt å følge den\n"
          "/status – coins du eier og hvordan de står\n"
@@ -540,6 +709,12 @@ def les_kommandoer(t):
             send("<b>Dine posisjoner</b>\n" + "\n".join(rader))
         elif kmd == "/logg":
             send(testlogg_tekst(t))
+        elif kmd in ("/analyse", "/analyser", "/analyze"):
+            try:
+                send(analyse_tekst(arg))
+            except Exception as feil:
+                print("Feil i /analyse:", repr(feil))
+                send("Analysen feilet denne gangen. Prøv igjen, eller send adressen i stedet for navnet.")
         elif kmd in ("/hjelp", "/help", "/start"):
             send(HJELP)
 
