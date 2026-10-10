@@ -1,0 +1,341 @@
+{
+ "start": 1791638781.9844663,
+ "slutt": 1791656781.9844668,
+ "kontanter": 691.3386608563933,
+ "posisjoner": {},
+ "handler": [
+  {
+   "tid": 1791638973.588634,
+   "type": "kjøp",
+   "symbol": "FACTORY",
+   "mint": "7536qC4LEs3W2GtSKbhVGNJSiRfuXJhKVthxsgfkpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791638977.9384305,
+   "type": "kjøp",
+   "symbol": "TM",
+   "mint": "6KDpQM4BVDdtAkjtyFDiBCkbii8q8BieEyXXm6kNpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791639142.6473553,
+   "type": "stopp",
+   "symbol": "FACTORY",
+   "mint": "7536qC4LEs3W2GtSKbhVGNJSiRfuXJhKVthxsgfkpump",
+   "x": 0.8380628483182644,
+   "resultat": -37.378094598082384
+  },
+  {
+   "tid": 1791639177.907957,
+   "type": "kjøp",
+   "symbol": "Imagine",
+   "mint": "EpFTb2XcGiMyGLykZ9VYmyPWz2AHEwAggqSbwJpypump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791640053.4830444,
+   "type": "kjøp",
+   "symbol": "Pepper",
+   "mint": "HXHZT27p7C9t62QyDgPoEHiRFsLoqUTYnJAmZ16tpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791640353.6768134,
+   "type": "stopp",
+   "symbol": "Pepper",
+   "mint": "HXHZT27p7C9t62QyDgPoEHiRFsLoqUTYnJAmZ16tpump",
+   "x": 0.7825407853284216,
+   "resultat": -46.7293880480139
+  },
+  {
+   "tid": 1791640525.5534978,
+   "type": "stopp",
+   "symbol": "Imagine",
+   "mint": "EpFTb2XcGiMyGLykZ9VYmyPWz2AHEwAggqSbwJpypump",
+   "x": 0.8401619210947359,
+   "resultat": -36.36307300269522
+  },
+  {
+   "tid": 1791641293.7773428,
+   "type": "kjøp",
+   "symbol": "Jef",
+   "mint": "88jUcA4vvbiyXxhhnk6RHyxuGaHhR7NQnfVwd6hBpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791641571.7937412,
+   "type": "stopp",
+   "symbol": "TM",
+   "mint": "6KDpQM4BVDdtAkjtyFDiBCkbii8q8BieEyXXm6kNpump",
+   "x": 0.795881694097837,
+   "resultat": -45.426447258778865
+  },
+  {
+   "tid": 1791642062.7194932,
+   "type": "kjøp",
+   "symbol": "Altai",
+   "mint": "FDJqEqqS68jummd8XGtBqzJTu2Pgc3pGQjozrpUzpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791642112.9370902,
+   "type": "stopp",
+   "symbol": "Jef",
+   "mint": "88jUcA4vvbiyXxhhnk6RHyxuGaHhR7NQnfVwd6hBpump",
+   "x": 0.7620954977351053,
+   "resultat": -44.7836765873556
+  },
+  {
+   "tid": 1791642231.7105148,
+   "type": "gevinst",
+   "symbol": "Altai",
+   "mint": "FDJqEqqS68jummd8XGtBqzJTu2Pgc3pGQjozrpUzpump",
+   "x": 2.0752512195556365,
+   "resultat": 82.81440446867659
+  },
+  {
+   "tid": 1791642471.727999,
+   "type": "slepestopp",
+   "symbol": "Altai",
+   "mint": "FDJqEqqS68jummd8XGtBqzJTu2Pgc3pGQjozrpUzpump",
+   "x": 1.26998403399435,
+   "resultat": 18.971671410915278
+  },
+  {
+   "tid": 1791643267.2018383,
+   "type": "kjøp",
+   "symbol": "qOMPUTE",
+   "mint": "BQAeeSowpwEx8Km8GcporcbuLKq4a7EQceH3F2qZpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791643862.716005,
+   "type": "kjøp",
+   "symbol": "CYBERLEEK",
+   "mint": "ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791643867.1355746,
+   "type": "kjøp",
+   "symbol": "Tschuna",
+   "mint": "95ccfn4UAUu3mQSvi7NJSJkHEnoLdW58qcRwwzmepump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791643912.022694,
+   "type": "stopp",
+   "symbol": "Tschuna",
+   "mint": "95ccfn4UAUu3mQSvi7NJSJkHEnoLdW58qcRwwzmepump",
+   "x": 0.8035160632128193,
+   "resultat": -38.90409339981451
+  },
+  {
+   "tid": 1791644582.7952049,
+   "type": "kjøp",
+   "symbol": "Altai",
+   "mint": "Gyk9Z93Ri2JUjqES9HTpc7pxCJTLD7vhBhEjBhyApump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791644939.1231863,
+   "type": "stopp",
+   "symbol": "qOMPUTE",
+   "mint": "BQAeeSowpwEx8Km8GcporcbuLKq4a7EQceH3F2qZpump",
+   "x": 0.8132996362152303,
+   "resultat": -37.58974139711026
+  },
+  {
+   "tid": 1791644939.61296,
+   "type": "gevinst",
+   "symbol": "Altai",
+   "mint": "Gyk9Z93Ri2JUjqES9HTpc7pxCJTLD7vhBhEjBhyApump",
+   "x": 1.5513167010823536,
+   "resultat": 42.14472901778076
+  },
+  {
+   "tid": 1791645507.5002768,
+   "type": "slepestopp",
+   "symbol": "Altai",
+   "mint": "Gyk9Z93Ri2JUjqES9HTpc7pxCJTLD7vhBhEjBhyApump",
+   "x": 1.2926652973371973,
+   "resultat": 21.20694905269623
+  },
+  {
+   "tid": 1791647825.935165,
+   "type": "kjøp",
+   "symbol": "QI",
+   "mint": "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791649690.0397758,
+   "type": "kjøp",
+   "symbol": "SI",
+   "mint": "6ir6ih6y9t9JWBLQSP5PRLVDzBxBRqQkMMnxkkT6pump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791650454.713697,
+   "type": "stopp",
+   "symbol": "SI",
+   "mint": "6ir6ih6y9t9JWBLQSP5PRLVDzBxBRqQkMMnxkkT6pump",
+   "x": 0.7028350492815524,
+   "resultat": -57.070995327471365
+  },
+  {
+   "tid": 1791650534.4705696,
+   "type": "kjøp",
+   "symbol": "qOMPUTE",
+   "mint": "BQAeeSowpwEx8Km8GcporcbuLKq4a7EQceH3F2qZpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791650934.726677,
+   "type": "stopp",
+   "symbol": "qOMPUTE",
+   "mint": "BQAeeSowpwEx8Km8GcporcbuLKq4a7EQceH3F2qZpump",
+   "x": 0.7515055800561968,
+   "resultat": -47.298938827159134
+  },
+  {
+   "tid": 1791650945.684718,
+   "type": "kjøp",
+   "symbol": "Altai",
+   "mint": "Gyk9Z93Ri2JUjqES9HTpc7pxCJTLD7vhBhEjBhyApump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791651194.44425,
+   "type": "kjøp",
+   "symbol": "brigitte",
+   "mint": "FV8fzQvgDM2jxL8mzmneFAC24rDhzPR5W8ZFydeXpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791651234.8768494,
+   "type": "stopp",
+   "symbol": "Altai",
+   "mint": "Gyk9Z93Ri2JUjqES9HTpc7pxCJTLD7vhBhEjBhyApump",
+   "x": 0.8451834417916296,
+   "resultat": -29.464871832816613
+  },
+  {
+   "tid": 1791653105.6527965,
+   "type": "kjøp",
+   "symbol": "Altai",
+   "mint": "FDJqEqqS68jummd8XGtBqzJTu2Pgc3pGQjozrpUzpump",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791654435.9968407,
+   "type": "stopp",
+   "symbol": "Altai",
+   "mint": "FDJqEqqS68jummd8XGtBqzJTu2Pgc3pGQjozrpUzpump",
+   "x": 0.7799642994056194,
+   "resultat": -40.213031427165475
+  },
+  {
+   "tid": 1791655544.191463,
+   "type": "stopp",
+   "symbol": "brigitte",
+   "mint": "FV8fzQvgDM2jxL8mzmneFAC24rDhzPR5W8ZFydeXpump",
+   "x": 0.7565121147106905,
+   "resultat": -43.24354995284851
+  },
+  {
+   "tid": 1791655821.7924037,
+   "type": "kjøp",
+   "symbol": "HOTBOT",
+   "mint": "8nnaeWCw8mUypcGAgbmSuzAT85uWx4UN12adDrMhXrGF",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791655833.06484,
+   "type": "kjøp",
+   "symbol": "CLAUDIA",
+   "mint": "2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM",
+   "x": 1.0,
+   "resultat": 0.0
+  },
+  {
+   "tid": 1791656806.223745,
+   "type": "tiden er ute",
+   "symbol": "CYBERLEEK",
+   "mint": "ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg",
+   "x": 1.0819118947559816,
+   "resultat": 8.798531302303275
+  },
+  {
+   "tid": 1791656806.6602068,
+   "type": "tiden er ute",
+   "symbol": "QI",
+   "mint": "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ",
+   "x": 1.1870987079210007,
+   "resultat": 26.32455609995759
+  },
+  {
+   "tid": 1791656807.113079,
+   "type": "tiden er ute",
+   "symbol": "HOTBOT",
+   "mint": "8nnaeWCw8mUypcGAgbmSuzAT85uWx4UN12adDrMhXrGF",
+   "x": 1.0089488496605723,
+   "resultat": -3.0657872428675432
+  },
+  {
+   "tid": 1791656807.5227022,
+   "type": "tiden er ute",
+   "symbol": "CLAUDIA",
+   "mint": "2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM",
+   "x": 1.02079892607408,
+   "resultat": -1.3904915937571332
+  }
+ ],
+ "pause": {
+  "7536qC4LEs3W2GtSKbhVGNJSiRfuXJhKVthxsgfkpump": 1791644543.094364,
+  "HXHZT27p7C9t62QyDgPoEHiRFsLoqUTYnJAmZ16tpump": 1791645754.0987763,
+  "EpFTb2XcGiMyGLykZ9VYmyPWz2AHEwAggqSbwJpypump": 1791645926.1346805,
+  "6KDpQM4BVDdtAkjtyFDiBCkbii8q8BieEyXXm6kNpump": 1791646972.1800168,
+  "88jUcA4vvbiyXxhhnk6RHyxuGaHhR7NQnfVwd6hBpump": 1791647513.322849,
+  "FDJqEqqS68jummd8XGtBqzJTu2Pgc3pGQjozrpUzpump": 1791659836.42464,
+  "95ccfn4UAUu3mQSvi7NJSJkHEnoLdW58qcRwwzmepump": 1791649312.3929949,
+  "BQAeeSowpwEx8Km8GcporcbuLKq4a7EQceH3F2qZpump": 1791656335.165458,
+  "Gyk9Z93Ri2JUjqES9HTpc7pxCJTLD7vhBhEjBhyApump": 1791656635.2915845,
+  "6ir6ih6y9t9JWBLQSP5PRLVDzBxBRqQkMMnxkkT6pump": 1791655855.117412,
+  "FV8fzQvgDM2jxL8mzmneFAC24rDhzPR5W8ZFydeXpump": 1791660944.632191,
+  "ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg": 1791662206.660197,
+  "8TiMkgvsrat9tM2esko8zVTt99LZLpefUM4SnZaziXaQ": 1791662207.1130714,
+  "8nnaeWCw8mUypcGAgbmSuzAT85uWx4UN12adDrMhXrGF": 1791662207.5226948,
+  "2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM": 1791662207.9692569
+ },
+ "forkastet": {
+  "for lite handel": 886,
+  "for liten": 287,
+  "ikke falt nok": 332,
+  "faller fortsatt": 13,
+  "ingen graf": 56,
+  "falt for mye": 73,
+  "for ny": 10
+ },
+ "sist_skann": 1791655783.959353,
+ "sist_status": 1791653334.6115966,
+ "ferdig": true
+}
