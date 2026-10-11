@@ -1,13 +1,26 @@
 {
  "dag": {
-  "antall": 0,
+  "antall": 1,
   "dato": "2026-10-12"
  },
  "hilst": true,
- "neste_id": 1,
+ "neste_id": 2,
  "posisjoner": {},
  "sist_feilmelding": 0,
- "sist_varslet": {},
+ "sist_varslet": {
+  "7Xgc5RacHtGzfhw2HukUBk5V986yBbvshr7rrCoopump": 1791759703
+ },
  "tg_offset": 172160293,
- "varsler": []
+ "varsler": [
+  {
+   "id": 1,
+   "maks": 1.0,
+   "min": 1.0,
+   "mint": "7Xgc5RacHtGzfhw2HukUBk5V986yBbvshr7rrCoopump",
+   "pris": 0.0013828581681965648,
+   "symbol": "DRMR",
+   "tid": 1791759703,
+   "utfall": "åpen"
+  }
+ ]
 }
