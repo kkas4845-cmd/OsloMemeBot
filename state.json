@@ -15,12 +15,12 @@
   {
    "id": 1,
    "maks": 1.0,
-   "min": 0.88,
+   "min": 0.8,
    "mint": "7Xgc5RacHtGzfhw2HukUBk5V986yBbvshr7rrCoopump",
    "pris": 0.0013828581681965648,
    "symbol": "DRMR",
    "tid": 1791759703,
-   "utfall": "åpen"
+   "utfall": "stopp først"
   }
  ]
 }
