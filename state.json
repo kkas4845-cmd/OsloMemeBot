@@ -1,13 +1,14 @@
 {
  "dag": {
-  "antall": 0,
+  "antall": 1,
   "dato": "2026-10-31"
  },
  "hilst": true,
- "neste_id": 2,
+ "neste_id": 3,
  "posisjoner": {},
  "sist_feilmelding": 0,
  "sist_varslet": {
+  "5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump": 1793460784,
   "7Xgc5RacHtGzfhw2HukUBk5V986yBbvshr7rrCoopump": 1791759703
  },
  "tg_offset": 172160293,
@@ -21,6 +22,16 @@
    "symbol": "DRMR",
    "tid": 1791759703,
    "utfall": "stopp først"
+  },
+  {
+   "id": 2,
+   "maks": 1.0,
+   "min": 1.0,
+   "mint": "5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump",
+   "pris": 0.0004322950346391627,
+   "symbol": "Saturween",
+   "tid": 1793460784,
+   "utfall": "åpen"
   }
  ]
 }
