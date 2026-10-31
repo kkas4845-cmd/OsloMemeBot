@@ -26,12 +26,12 @@
   {
    "id": 2,
    "maks": 1.32,
-   "min": 0.83,
+   "min": 0.73,
    "mint": "5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump",
    "pris": 0.0004322950346391627,
    "symbol": "Saturween",
    "tid": 1793460784,
-   "utfall": "åpen"
+   "utfall": "stopp først"
   }
  ]
 }
