@@ -37,12 +37,12 @@
   {
    "id": 3,
    "maks": 1.26,
-   "min": 0.88,
+   "min": 0.79,
    "mint": "APLPiTjBWzwfZ5U1TBeqLF9XJ7dV7XKGe7j4BZhkDray",
    "pris": 0.0005950526755840515,
    "symbol": "PEAK",
    "tid": 1793641342,
-   "utfall": "åpen"
+   "utfall": "stopp først"
   }
  ]
 }
