@@ -1,14 +1,15 @@
 {
  "dag": {
-  "antall": 0,
+  "antall": 1,
   "dato": "2026-11-07"
  },
  "hilst": true,
- "neste_id": 4,
+ "neste_id": 5,
  "posisjoner": {},
  "sist_feilmelding": 0,
  "sist_varslet": {
   "5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump": 1793460784,
+  "5wsjHxT5nW5jQuVupXUNnYszF3WoWCfGGk9LMcsCJzY8": 1794081207,
   "7Xgc5RacHtGzfhw2HukUBk5V986yBbvshr7rrCoopump": 1791759703,
   "APLPiTjBWzwfZ5U1TBeqLF9XJ7dV7XKGe7j4BZhkDray": 1793641342
  },
@@ -43,6 +44,16 @@
    "symbol": "PEAK",
    "tid": 1793641342,
    "utfall": "stopp først"
+  },
+  {
+   "id": 4,
+   "maks": 1.0,
+   "min": 1.0,
+   "mint": "5wsjHxT5nW5jQuVupXUNnYszF3WoWCfGGk9LMcsCJzY8",
+   "pris": 0.0018950460790876414,
+   "symbol": "STANK",
+   "tid": 1794081207,
+   "utfall": "åpen"
   }
  ]
 }
