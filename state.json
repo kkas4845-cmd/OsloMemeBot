@@ -48,12 +48,12 @@
   {
    "id": 4,
    "maks": 1.0,
-   "min": 0.81,
+   "min": 0.77,
    "mint": "5wsjHxT5nW5jQuVupXUNnYszF3WoWCfGGk9LMcsCJzY8",
    "pris": 0.0018950460790876414,
    "symbol": "STANK",
    "tid": 1794081207,
-   "utfall": "åpen"
+   "utfall": "stopp først"
   }
  ]
 }
