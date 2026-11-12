@@ -1,16 +1,16 @@
 {
  "dag": {
-  "antall": 0,
+  "antall": 1,
   "dato": "2026-11-12"
  },
  "hilst": true,
- "neste_id": 6,
+ "neste_id": 7,
  "posisjoner": {},
  "sist_feilmelding": 0,
  "sist_varslet": {
   "2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM": 1794177470,
   "5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump": 1793460784,
-  "5wsjHxT5nW5jQuVupXUNnYszF3WoWCfGGk9LMcsCJzY8": 1794081207,
+  "5wsjHxT5nW5jQuVupXUNnYszF3WoWCfGGk9LMcsCJzY8": 1794512823,
   "7Xgc5RacHtGzfhw2HukUBk5V986yBbvshr7rrCoopump": 1791759703,
   "APLPiTjBWzwfZ5U1TBeqLF9XJ7dV7XKGe7j4BZhkDray": 1793641342
  },
@@ -65,6 +65,16 @@
    "symbol": "CLAUDIA",
    "tid": 1794177470,
    "utfall": "stopp først"
+  },
+  {
+   "id": 6,
+   "maks": 1.0,
+   "min": 1.0,
+   "mint": "5wsjHxT5nW5jQuVupXUNnYszF3WoWCfGGk9LMcsCJzY8",
+   "pris": 0.002499173690991266,
+   "symbol": "STANK",
+   "tid": 1794512823,
+   "utfall": "åpen"
   }
  ]
 }
