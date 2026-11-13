@@ -1,7 +1,7 @@
 {
  "dag": {
-  "antall": 1,
-  "dato": "2026-11-12"
+  "antall": 0,
+  "dato": "2026-11-13"
  },
  "hilst": true,
  "neste_id": 7,
@@ -69,12 +69,12 @@
   {
    "id": 6,
    "maks": 1.0,
-   "min": 1.0,
+   "min": 0.79,
    "mint": "5wsjHxT5nW5jQuVupXUNnYszF3WoWCfGGk9LMcsCJzY8",
    "pris": 0.002499173690991266,
    "symbol": "STANK",
    "tid": 1794512823,
-   "utfall": "åpen"
+   "utfall": "stopp først"
   }
  ]
 }
