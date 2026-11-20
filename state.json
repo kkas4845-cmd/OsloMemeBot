@@ -1,7 +1,7 @@
 {
  "dag": {
-  "antall": 1,
-  "dato": "2026-11-19"
+  "antall": 0,
+  "dato": "2026-11-20"
  },
  "hilst": true,
  "neste_id": 8,
@@ -79,7 +79,7 @@
   },
   {
    "id": 7,
-   "maks": 1.0,
+   "maks": 1.06,
    "min": 1.0,
    "mint": "ejrz94zR4A2ScS8LdvRaQih2xUxaE2ydreqUNKmpump",
    "pris": 0.007024890841295192,
