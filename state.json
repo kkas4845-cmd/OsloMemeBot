@@ -80,12 +80,12 @@
   {
    "id": 7,
    "maks": 1.06,
-   "min": 1.0,
+   "min": 0.64,
    "mint": "ejrz94zR4A2ScS8LdvRaQih2xUxaE2ydreqUNKmpump",
    "pris": 0.007024890841295192,
    "symbol": "ANTS",
    "tid": 1795114803,
-   "utfall": "åpen"
+   "utfall": "stopp først"
   }
  ]
 }
